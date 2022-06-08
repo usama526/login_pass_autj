@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:login_pass_autj/Screens/Home_Screen.dart';
+import 'package:provider/provider.dart';
+
+import '../Authentication_service.dart';
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
 
@@ -18,6 +21,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
 
+    final auth = Provider.of<AuthenticationService>(context);
     final firstNameField = TextFormField(
       autofocus: false,
       controller: firstNameEditingController,

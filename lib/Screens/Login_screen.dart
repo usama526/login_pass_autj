@@ -18,6 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<AuthenticationService>(context);
+
     final emailFiled = TextFormField(
       autofocus: false,
       controller: emailController,
@@ -63,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          context.read<AuthenticationService>().signIn(
+          auth.signIn(
             email: emailController.text.trim(),
             password: passwordController.text.trim(),
           );
